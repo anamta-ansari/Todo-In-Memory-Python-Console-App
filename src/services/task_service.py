@@ -60,7 +60,7 @@ class TaskService:
                 return task
         return None
 
-    def update_task(self, task_id: int, title: str = None, description: str = None,
+    def update_task(self, task_id: int, title: str = None, description: str = None, 
                     completed: bool = None, priority: str = None, tags: List[str] = None) -> Optional[Task]:
         """
         Update a task's attributes.
@@ -84,7 +84,7 @@ class TaskService:
             updated_completed = completed if completed is not None else task.completed
             updated_priority = priority if priority is not None else task.priority
             updated_tags = tags if tags is not None else task.tags
-
+            
             task.update(
                 title=updated_title,
                 description=updated_description,

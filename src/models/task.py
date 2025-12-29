@@ -10,7 +10,7 @@ class Task:
     Represents a single todo item with id, title, description, completion status, priority, and tags.
     """
 
-    def __init__(self, task_id: int, title: str, description: str = "", completed: bool = False,
+    def __init__(self, task_id: int, title: str, description: str = "", completed: bool = False, 
                  priority: str = "Medium", tags: List[str] = None):
         """
         Initialize a Task instance.
@@ -112,10 +112,10 @@ class Task:
         for tag in tags:
             if not isinstance(tag, str):
                 raise ValueError("Each tag must be a string")
-
+            
             if len(tag) < 1 or len(tag) > 50:
                 raise ValueError("Each tag must be between 1 and 50 characters")
-
+            
             # Add tag only if it's not already in the list (avoid duplicates)
             if tag not in validated_tags:
                 validated_tags.append(tag)
@@ -138,7 +138,7 @@ class Task:
             "tags": self.tags
         }
 
-    def update(self, title: str = None, description: str = None, completed: bool = None,
+    def update(self, title: str = None, description: str = None, completed: bool = None, 
                priority: str = None, tags: List[str] = None):
         """
         Update task attributes.

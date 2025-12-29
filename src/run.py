@@ -3,6 +3,11 @@
 Entry point for the Todo In-Memory Console Application.
 """
 
+import sys
+import os
+# Add the src directory to the path so we can import from todo_app
+sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
+
 from todo_app.main import TodoApp
 
 
