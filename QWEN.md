@@ -1,4 +1,4 @@
-# Qwen Code Rules
+﻿# Qwen Code Rules
 
 This file is generated during init for the selected agent.
 
@@ -208,3 +208,21 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+
+This project uses Qwen CLI's native reusable intelligence system.
+
+## Reusable Skills Location
+All reusable intelligence is stored in: `.qwen/skills/`
+
+## Defined Skills (2)
+
+### 1. terminal-ui-stylist
+- Location: .qwen/skills/terminal-ui-stylist/skill.md
+- Purpose: Beautiful terminal formatting with colors and symbols
+- Used in: /sp.implement for polished console output
+
+### 2. todo-spec-writer
+- Location: .qwen/skills/todo-spec-writer/skill.md
+- Purpose: Professional specification writing for Todo features
+- Used in: /sp.specify, /sp.plan, /sp.tasks

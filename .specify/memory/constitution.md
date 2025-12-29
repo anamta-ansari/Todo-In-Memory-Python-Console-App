@@ -1,55 +1,76 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A → 1.0.0
+Added sections: Core Principles (6 principles), Additional Constraints, Development Workflow, Governance
+Modified principles: N/A (new constitution)
+Removed sections: N/A
+Templates requiring updates: 
+- ✅ .specify/templates/plan-template.md - updated
+- ✅ .specify/templates/spec-template.md - updated  
+- ✅ .specify/templates/tasks-template.md - updated
+- ⚠ .specify/templates/commands/*.md - pending manual review
+- ⚠ README.md - pending manual review
+Follow-up TODOs: None
+-->
+
+# Todo In-Memory Console App Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Spec-Driven Development
+All features must be specified before implementation; Specifications serve as contracts that guide development and testing; Changes to behavior require specification updates first before code changes.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Clean Code Principles
+Code must be readable, maintainable, and well-structured; Follow Python PEP 8 style guidelines; Functions and classes should have single responsibilities; Proper documentation and type hints required.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Proper Python Project Structure
+Organize code following standard Python project conventions; Separate source code in src/ directory; Tests in tests/ directory; Proper package structure with __init__.py files; Use virtual environments for dependency management.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. No External Dependencies
+The application must run with standard Python library only; No pip packages beyond what's in standard library; Self-contained implementation to ensure portability and simplicity; All functionality built from scratch.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Beautiful and Professional Terminal Interface
+Create an intuitive, user-friendly command-line experience; Clear, well-formatted output with proper spacing and alignment; Consistent command syntax and helpful error messages; Professional visual presentation in terminal.
 
-### [PRINCIPLE_6_NAME]
+### VI. In-Memory Data Storage
+Tasks are stored only in memory during application runtime; No persistent storage to files or databases; Data is lost when application terminates; Focus on core functionality without persistence complexity.
 
+## Additional Constraints
 
-[PRINCIPLE__DESCRIPTION]
+### Exact Scope Requirements
+Implement ONLY these 5 features:
+1. Add task with title and description
+2. View all tasks with ID and clear status indicators
+3. Update task title/description by ID
+4. Delete task by ID
+5. Mark task as complete OR incomplete (toggle)
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### Technical Rules
+- All changes must go through specs first
+- Code only in src/ directory
+- Specs in specs-history/ directory
+- Reusable intelligence in .qwen/skills/ and documented in qwen.md
+- No external dependencies beyond Python standard library
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Development Workflow
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Implementation Process
+- Create detailed specifications before writing code
+- Write tests to validate against specifications
+- Implement features following specification exactly
+- Verify implementation matches specification requirements
+- Document any deviations or clarifications needed
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### Quality Standards
+- Code must be clean, readable, and well-documented
+- Proper error handling for all user inputs
+- Consistent formatting and naming conventions
+- Comprehensive testing of all features
+- Professional terminal interface design
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs all development practices for the Todo In-Memory Console App project. All team members must follow these principles and constraints. Amendments to this constitution require explicit approval and documentation of the changes and their rationale.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Specifications take precedence over implementation; if there's a conflict between what the code does and what the spec says, the spec is correct and the code must be updated.
+
+**Version**: 1.0.0 | **Ratified**: 2025-01-01 | **Last Amended**: 2025-12-29
